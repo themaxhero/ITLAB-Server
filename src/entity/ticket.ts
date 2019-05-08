@@ -1,11 +1,21 @@
 import { BaseEntity, Column, PrimaryGeneratedColumn, Entity } from "typeorm";
 
-export enum Category {
+enum Category {
     ADULT = "ADULT",
     KID = "KID",
 }
 
-interface CreationParams {
+export interface CreationParams {
+    destiny: string;
+    departure: Date;
+    back: Date;
+    price: number;
+    national: boolean;
+    kind: Category;
+}
+
+export interface UpdateParams {
+    id: string;
     destiny: string;
     departure: Date;
     back: Date;
@@ -15,7 +25,7 @@ interface CreationParams {
 }
 
 @Entity()
-class Ticket extends BaseEntity {
+export class Ticket extends BaseEntity {
     @PrimaryGeneratedColumn("uuid")
     public id!: string;
 
