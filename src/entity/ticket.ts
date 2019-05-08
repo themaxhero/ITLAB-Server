@@ -1,6 +1,6 @@
 import { BaseEntity, Column, PrimaryGeneratedColumn, Entity } from "typeorm";
 
-enum Category {
+export enum Category {
     ADULT = "ADULT",
     KID = "KID",
 }
@@ -22,6 +22,16 @@ export interface UpdateParams {
     price: number;
     national: boolean;
     kind: Category;
+}
+
+export interface SearchParams{
+    destiny?: string;
+    departure?: Date;
+    back?: Date;
+    minPrice?: number;
+    maxPrice?: number;
+    national?: boolean;
+    kind?: Category;
 }
 
 @Entity()

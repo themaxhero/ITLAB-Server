@@ -15,8 +15,8 @@ export class TicketRepo extends BaseRepo {
 
     public async get(id: string){
         return await this.ormRepo
-            .createQueryBuilder("product")
-            .where("product.id = :id", { id })
+            .createQueryBuilder("Ticket")
+            .where("Ticket.id = :id", { id })
             .getOne();
     }
 
