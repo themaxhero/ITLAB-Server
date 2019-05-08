@@ -1,6 +1,6 @@
 import { Connection, Repository, SelectQueryBuilder, QueryBuilder } from "typeorm"
 import { BaseRepo } from "./base";
-import { Ticket, CreationParams, UpdateParams, SearchParams, Category } from "src/entity/ticket";
+import { Ticket, CreationParams, UpdateParams, SearchParams, Category } from "../entity/ticket";
 
 type searchable = string | Date | number | boolean | Category | undefined;
 

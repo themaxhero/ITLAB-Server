@@ -57,7 +57,13 @@ export class Ticket extends BaseEntity {
     @Column("varchar", { length: 5 })
     public kind: Category;
 
-    constructor({destiny, departure, back, price, national, kind}: CreationParams){
+    constructor(destiny: string,
+                departure: Date,
+                back: Date,
+                price: number,
+                national: boolean,
+                kind: Category,
+        ){
         super();
         this.destiny = destiny;
         this.departure = departure;

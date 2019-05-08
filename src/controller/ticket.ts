@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import TicketRequestValidator from "../validator/ticket";
 import Repos from "../repo";
+import { CreationParams } from "../entity/ticket";
 
 export default class TicketController{
 
@@ -40,8 +41,8 @@ export default class TicketController{
 
     public static async create(req: Request, res: Response, repo: Repos){
         try {
-            const params = TicketRequestValidator.create(req);
-            const ticket = await repo.ticket.create(params);
+            const params: CreationParams = TicketRequestValidator.create(req);
+            const ticket = await repo.ticket.create(...params);
             if (!ticket){
                 throw new Error("ticket_not_found");
             }
